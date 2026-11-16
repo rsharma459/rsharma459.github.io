@@ -1,0 +1,13 @@
+# Academic service, grouped by category.
+# Each category has a heading and a list of items with { label, detail, comment? }
+# TODO: replace placeholders.
+
+- heading: "Conference Reviewing"
+  items:
+    - label: "TODO year"
+      detail: "TODO: venues"
+
+- heading: "Journal Reviewing"
+  items:
+    - label: "TODO year"
+      detail: "TODO: journals"

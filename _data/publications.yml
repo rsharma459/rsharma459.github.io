@@ -1,0 +1,32 @@
+# Publications, newest first.
+#
+# ANONYMITY: never name the venue a paper is under review at - write plain
+# "Under review." Naming it can compromise double-blind review. Only name a
+# venue once the paper is accepted or published.
+#
+# Fields:
+#   title    (required)
+#   authors  (required) - wrap your own name in <strong>...</strong>
+#   venue    (required) - where it appeared / its current status
+#   year     (optional) - shown in parentheses after the title
+#   note     (optional) - highlighted in red, e.g. "Best Paper Award"
+#   image    (optional) - path to a teaser image, e.g. assets/img/teaser.png
+#   links    (optional) - list of { name, url } buttons
+#
+# TODO: the entries below are working titles with placeholder co-authors.
+# Replace titles, author lists, status and links with the exact versions.
+
+main:
+
+  - title: "Sparse Multimodal Switching State-Space Models for Seizure Onset Zone Localization from Joint EEG&ndash;iEEG"
+    authors: <strong>Rahul Sharma</strong>, TODO co-authors
+    venue: "Under review."
+    year: 2026
+    # links:
+    #   - name: arXiv
+    #     url: https://arxiv.org/abs/XXXX.XXXXX
+
+  - title: "Impute-Net: TODO full title"
+    authors: <strong>Rahul Sharma</strong>, TODO co-authors
+    venue: "In preparation."
+    year: 2026

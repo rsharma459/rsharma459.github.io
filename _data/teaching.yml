@@ -1,0 +1,11 @@
+# Teaching, grouped by institution.
+# Each group: school, location, roles -> [{ title, items: [{ date, course, comment? }] }]
+# TODO: replace the placeholder below.
+
+- school: "Georgia Institute of Technology"
+  location: "Atlanta, GA, USA"
+  roles:
+    - title: "Teaching Assistant"
+      items:
+        - date: "TODO Mon YYYY &ndash; Mon YYYY"
+          course: "ISyE TODO &mdash; Course name"

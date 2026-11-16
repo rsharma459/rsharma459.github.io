@@ -1,0 +1,9 @@
+# Awards, grouped by year (newest first).
+# Fields per item: title (HTML allowed), detail (optional, shown beneath)
+# TODO: replace the placeholder below with your awards (or remove the Awards
+# section: delete its line in _layouts/homepage.html and the nav link).
+
+- year: "TODO"
+  items:
+    - title: "<strong>TODO: Award name</strong>"
+      detail: "TODO: Awarded by ..."
