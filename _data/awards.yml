@@ -3,7 +3,8 @@
 # TODO: replace the placeholder below with your awards (or remove the Awards
 # section: delete its line in _layouts/homepage.html and the nav link).
 
-- year: "TODO"
+- year: "2026"
   items:
-    - title: "<strong>TODO: Award name</strong>"
-      detail: "TODO: Awarded by ..."
+    - title: "Second Prize, Young Professional Poster Competition"
+      detail: "IEEE FLEPS 2026. Awarded for research on artifact-aware sleep apnea detection using Impute-Net."
+
