@@ -27,7 +27,7 @@ canonical: https://rsharma459.github.io/
 google_scholar: https://scholar.google.com/citations?user=VYn4ZOIAAAAJ&hl=en
 github_link: https://github.com/rsharma459
 linkedin: https://www.linkedin.com/in/rahul-sharma-35120b254/
-cv_link: assets/files/curriculum_vitae.pdf   # TODO: upload your CV to assets/files/ (or delete this line)
+cv_link: assets/curriculum_vitae.pdf   
 
 # Images (profile picture and favicons)
 # "favicon" and "favicon_dark" are used for the light and dark modes.
