@@ -1125,3 +1125,109 @@ nav {
     box-shadow: none;
   }
 }
+
+/* ==========================================
+   ACADEMIC PROFILE ALIGNMENT FIX
+   ========================================== */
+
+/* Balanced two-column layout */
+.hero-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Profile card */
+.profile-card {
+  width: 100%;
+  max-width: 260px;
+  padding: 20px;
+
+  position: sticky;
+  top: 95px;
+
+  text-align: center;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Profile photograph */
+.profile-card .profile-image {
+  display: block;
+
+  width: 100%;
+  max-width: 220px;
+  height: 220px;
+
+  margin: 0 auto 18px;
+
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 25%;
+
+  border-radius: 5px;
+}
+
+/* Profile details */
+.profile-card h1 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.profile-title {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.profile-affiliation {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Center academic links */
+.profile-card .social-links {
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+
+/* Align research text with the card */
+.hero-container .bio {
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.hero-container .bio p {
+  line-height: 1.75;
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+
+  .hero-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .profile-card {
+    position: static;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .profile-card .profile-image {
+    max-width: 200px;
+    height: 200px;
+  }
+
+  .hero-container .bio {
+    padding-top: 0;
+  }
+}
