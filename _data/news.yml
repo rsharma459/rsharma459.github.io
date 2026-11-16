@@ -1,17 +1,29 @@
-# News items shown in the hero, newest first.
-#
-# ANONYMITY: never name the venue a paper is under review at - write plain
-# "under review." Only name a venue once the paper is accepted or published.
-# Keep this list short - 4 or 5 entries reads best. Delete the oldest as you add.
-#
-# Fields: date (shown in brackets), text (HTML allowed)
 
-- date: "2026-11"
+- date: "2026"
   text: >-
-    Launched this website.
+    Our paper on sparse multimodal switching state-space
+    modeling for neural connectivity was accepted at
+    <strong>NeurIPS 2026</strong>!
 
-# TODO: add real news, e.g.
-# - date: "2026-09"
-#   text: >-
-#     New preprint:
-#     <strong><a href="https://arxiv.org/abs/XXXX.XXXXX">Paper title</a></strong>
+- date: "2026"
+  text: >-
+    Received <strong>Second Prize</strong> in the
+    Young Professional Poster Competition at
+    <strong>IEEE FLEPS 2026</strong> for our work on
+    artifact-aware sleep apnea detection.
+
+- date: "2026-08"
+  text: >-
+    Started serving as <strong>Vice President</strong>
+    of the Georgia Tech INFORMS Student Chapter.
+
+- date: "2026"
+  text: >-
+    Our paper on granular computing and least square
+    twin SVM was published in
+    <strong>Pattern Recognition</strong>.
+
+- date: "2025"
+  text: >-
+    Our paper on graph-based multi-view learning
+    was published in <strong>Information Sciences</strong>.
