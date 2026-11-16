@@ -1,160 +1,548 @@
+
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="light dark">
+<html lang="{{ site.lang | default: 'en-US' }}">
 
-    <!-- Apply the saved theme before first paint, or the page flashes the
-         wrong palette on load. Must stay inline and stay here, above the CSS. -->
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          if (t === 'dark' || t === 'light') {
-            document.documentElement.setAttribute('data-theme', t);
-          }
-        } catch (e) { /* private mode / storage blocked - fall back to the OS setting */ }
-      })();
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-    <title>{{ site.title }} | {{ site.affiliation }}</title>
-    <meta name="description" content="{{ site.description }}">
-    {% if site.keywords %}<meta name="keywords" content="{{ site.keywords }}">{% endif %}
-    {% if site.canonical %}<link rel="canonical" href="{{ site.canonical }}"/>{% endif %}
+  <!-- Apply saved theme before page loads -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {
+        /* Fall back to system theme */
+      }
+    })();
+  </script>
 
-    <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ '/assets/img/favicon-dark.png' | relative_url }}" type="image/png" />
-    <link rel="icon" media="(prefers-color-scheme:light)" href="{{ '/assets/img/favicon.png' | relative_url }}" type="image/png" />
-    <script src="{{ '/assets/js/favicon-switcher.js' | relative_url }}" type="application/javascript"></script>
+  <title>{{ site.title }} | {{ site.affiliation }}</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  </head>
+  <meta name="description" content="{{ site.description | escape }}">
 
-  <body>
-    <nav>
-      <div class="nav-container">
-        <a href="{{ '/' | relative_url }}" class="nav-brand">{{ site.title }}</a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#about">Home</a></li>
-          <li><a href="#publications">Research</a></li>
-          <li><a href="#talks">Talks</a></li>
-          <li><a href="#teaching">Teaching</a></li>
-          <li><a href="#services">Service</a></li>
-          <li><a href="#awards">Awards</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
-            <i class="fas fa-moon" aria-hidden="true"></i>
-            <i class="fas fa-sun" aria-hidden="true"></i>
-          </button>
-          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
+  {% if site.keywords %}
+  <meta name="keywords" content="{{ site.keywords | escape }}">
+  {% endif %}
+
+  {% if site.canonical %}
+  <link rel="canonical" href="{{ site.canonical }}">
+  {% endif %}
+
+  <!-- Favicons -->
+  <link rel="icon"
+        media="(prefers-color-scheme:dark)"
+        href="{{ '/assets/img/favicon-dark.png' | relative_url }}"
+        type="image/png">
+
+  <link rel="icon"
+        media="(prefers-color-scheme:light)"
+        href="{{ '/assets/img/favicon.png' | relative_url }}"
+        type="image/png">
+
+  <script
+    src="{{ '/assets/js/favicon-switcher.js' | relative_url }}"
+    type="application/javascript">
+  </script>
+
+  <!-- Fonts and icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css"
+        integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw="
+        crossorigin="anonymous">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet"
+        href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- =====================================
+       IMPROVED ACADEMIC NEWS SECTION
+       ===================================== -->
+
+  <style>
+
+    .news-section {
+      margin-top: 1.5rem;
+      padding-top: 0.5rem;
+    }
+
+    .news-section .news-heading {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .news-section .news-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .news-section .news-item {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+
+      margin: 0;
+      padding: 13px 0;
+
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .news-section .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-section .news-date {
+      display: block;
+      color: var(--primary-color);
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.6;
+      white-space: nowrap;
+      margin: 0;
+    }
+
+    .news-section .news-text {
+      display: block;
+      min-width: 0;
+
+      color: var(--text-dark);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+    }
+
+    .news-section .news-text p {
+      margin: 0;
+    }
+
+    .news-section .news-text strong {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .news-section .news-text a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .news-section .news-text a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+
+      .news-section .news-item {
+        grid-template-columns: 74px minmax(0, 1fr);
+        gap: 10px;
+        padding: 12px 0;
+      }
+
+      .news-section .news-date {
+        font-size: 0.8rem;
+      }
+
+      .news-section .news-text {
+        font-size: 0.88rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =====================================
+       TOP NAVIGATION
+       ===================================== -->
+
+  <nav aria-label="Main navigation">
+
+    <div class="nav-container">
+
+      <a href="{{ '/' | relative_url }}"
+         class="nav-brand">
+        {{ site.title }}
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="#about">Home</a>
+        </li>
+
+        <li>
+          <a href="#publications">Research</a>
+        </li>
+
+        <li>
+          <a href="#talks">Talks</a>
+        </li>
+
+        <li>
+          <a href="#teaching">Teaching</a>
+        </li>
+
+        <li>
+          <a href="#services">Service</a>
+        </li>
+
+        <li>
+          <a href="#awards">Awards</a>
+        </li>
+
+      </ul>
+
+      <div class="nav-actions">
+
+        <!-- Theme toggle -->
+        <button class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Switch to dark mode"
+                title="Switch to dark mode">
+
+          <i class="fas fa-moon" aria-hidden="true"></i>
+          <i class="fas fa-sun" aria-hidden="true"></i>
+
+        </button>
+
+        <!-- Mobile menu -->
+        <button class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="Toggle menu"
+                aria-controls="navLinks"
+                aria-expanded="false">
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </button>
+
       </div>
-    </nav>
 
-    <section class="hero" id="about">
-      <div class="hero-container">
-        <div class="profile-card">
-          {% if site.avatar %}
-          <img src="{{ site.avatar | relative_url }}" alt="{{ site.title }}" class="profile-image">
+    </div>
+
+  </nav>
+
+
+  <!-- =====================================
+       PROFILE AND ABOUT SECTION
+       ===================================== -->
+
+  <section class="hero" id="about">
+
+    <div class="hero-container">
+
+      <!-- Profile card -->
+      <div class="profile-card">
+
+        {% if site.avatar %}
+        <img src="{{ site.avatar | relative_url }}"
+             alt="{{ site.title }}"
+             class="profile-image">
+        {% endif %}
+
+        <h1>{{ site.title }}</h1>
+
+        {% if site.position %}
+        <p class="profile-title">
+          {{ site.position }}
+        </p>
+        {% endif %}
+
+        <!-- Affiliation -->
+        {% if site.affiliation %}
+        <p class="profile-affiliation">
+
+          {% if site.affiliation_link %}
+          <a href="{{ site.affiliation_link }}"
+             rel="noopener">
+            {{ site.affiliation_full | default: site.affiliation }}
+          </a>
+          {% else %}
+          {{ site.affiliation_full | default: site.affiliation }}
           {% endif %}
 
-          <h1>{{ site.title }}</h1>
+        </p>
+        {% endif %}
 
-          {% if site.position %}<p class="profile-title">{{ site.position }}</p>{% endif %}
+        <!-- University -->
+        {% if site.university %}
+        <p class="profile-affiliation">
+          {{ site.university }}
+        </p>
+        {% endif %}
 
-          {% if site.affiliation %}
-          <p class="profile-affiliation">
-            {% if site.affiliation_link %}<a href="{{ site.affiliation_link }}" rel="noopener">{{ site.affiliation_full | default: site.affiliation }}</a>{% else %}{{ site.affiliation_full | default: site.affiliation }}{% endif %}
-          </p>
+        <!-- Location -->
+        {% if site.location %}
+        <p class="profile-affiliation">
+          <i class="fas fa-location-crosshairs"
+             aria-hidden="true"></i>
+          {{ site.location }}
+        </p>
+        {% endif %}
+
+
+        <!-- =====================================
+             ACADEMIC AND SOCIAL LINKS
+             ===================================== -->
+
+        <div class="social-links">
+
+          <!-- Google Scholar -->
+          {% if site.google_scholar %}
+          <a href="{{ site.google_scholar }}"
+             title="Google Scholar"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Google Scholar">
+
+            <i class="ai ai-google-scholar"
+               aria-hidden="true"></i>
+
+          </a>
           {% endif %}
-          {% if site.university %}<p class="profile-affiliation">{{ site.university }}</p>{% endif %}
-          {% if site.location %}
-          <p class="profile-affiliation">
-            <i class="fas fa-location-crosshairs" aria-hidden="true"></i> {{ site.location }}
-          </p>
+
+
+          <!-- CV -->
+          {% if site.cv_link %}
+          <a href="{{ site.cv_link | relative_url }}"
+             title="Curriculum Vitae"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Curriculum Vitae">
+
+            <i class="ai ai-cv"
+               aria-hidden="true"></i>
+
+          </a>
           {% endif %}
 
-          <div class="social-links">
-            {% if site.google_scholar %}
-            <a href="{{ site.google_scholar }}" title="Google Scholar" target="_blank" rel="noopener" aria-label="Google Scholar">
-              <i class="ai ai-google-scholar" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            {% if site.cv_link %}
-            <a href="{{ site.cv_link | relative_url }}" title="Curriculum Vitae" target="_blank" rel="noopener" aria-label="Curriculum Vitae">
-              <i class="ai ai-cv" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            {% if site.thesis_link %}
-            <a href="{{ site.thesis_link | relative_url }}" title="Master's thesis" target="_blank" rel="noopener" aria-label="Master's thesis">
-              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            {% if site.github_link %}
-            <a href="{{ site.github_link }}" title="GitHub" target="_blank" rel="noopener" aria-label="GitHub">
-              <i class="fab fa-github" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            {% if site.linkedin %}
-            <a href="{{ site.linkedin }}" title="LinkedIn" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-          </div>
 
-          {% if site.email %}<p class="profile-email">{{ site.email }}</p>{% endif %}
+          <!-- Master's Thesis -->
+          {% if site.thesis_link %}
+          <a href="{{ site.thesis_link | relative_url }}"
+             title="Master's thesis"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Master's thesis">
+
+            <i class="fas fa-graduation-cap"
+               aria-hidden="true"></i>
+
+          </a>
+          {% endif %}
+
+
+          <!-- GitHub -->
+          {% if site.github_link %}
+          <a href="{{ site.github_link }}"
+             title="GitHub"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="GitHub">
+
+            <i class="fab fa-github"
+               aria-hidden="true"></i>
+
+          </a>
+          {% endif %}
+
+
+          <!-- LinkedIn -->
+          {% if site.linkedin %}
+          <a href="{{ site.linkedin }}"
+             title="LinkedIn"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="LinkedIn">
+
+            <i class="fab fa-linkedin"
+               aria-hidden="true"></i>
+
+          </a>
+          {% endif %}
+
         </div>
 
-        <div class="bio">
-          {{ content }}
 
-          {% if site.data.news and site.data.news.size > 0 %}
-          <hr class="bio-separator" />
-          <div class="news-section">
-            <h3>News</h3>
-            <ul class="news-list">
-              {% for item in site.data.news %}
-              <li>
-                <span class="news-date">{{ item.date }}</span>{{ item.text }}
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-          {% endif %}
-        </div>
+        <!-- Email -->
+        {% if site.email %}
+        <p class="profile-email">
+          {{ site.email }}
+        </p>
+        {% endif %}
+
       </div>
-    </section>
 
-    {% include publications.html %}
-    {% include talks.html %}
-    {% include teaching.html %}
-    {% include services.html %}
-    {% include awards.html %}
 
-    <footer>
-      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }} &middot; Georgia Tech ISyE</p>
-      {% if site.enable_footnote %}
-      <p><small>Powered by Jekyll and the <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
-      {% endif %}
-    </footer>
+      <!-- =====================================
+           BIOGRAPHY AND RESEARCH INTERESTS
+           ===================================== -->
 
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-    {% if site.google_analytics %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{ site.google_analytics }}');
-    </script>
+      <div class="bio">
+
+        {{ content }}
+
+
+        <!-- =====================================
+             NEWS SECTION
+             ===================================== -->
+
+        {% if site.data.news and site.data.news.size > 0 %}
+
+        <hr class="bio-separator">
+
+        <div class="news-section" id="news">
+
+          <h3 class="news-heading">News</h3>
+
+          <ul class="news-list">
+
+            {% for item in site.data.news %}
+
+            <li class="news-item">
+
+              <!-- Date -->
+              <span class="news-date">
+                {{ item.date }}
+              </span>
+
+              <!-- Announcement -->
+              <div class="news-text">
+                {{ item.text | markdownify }}
+              </div>
+
+            </li>
+
+            {% endfor %}
+
+          </ul>
+
+        </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       RESEARCH AND PUBLICATIONS
+       ===================================== -->
+
+  {% include publications.html %}
+
+
+  <!-- =====================================
+       TALKS AND PRESENTATIONS
+       ===================================== -->
+
+  {% include talks.html %}
+
+
+  <!-- =====================================
+       TEACHING
+       ===================================== -->
+
+  {% include teaching.html %}
+
+
+  <!-- =====================================
+       ACADEMIC SERVICE
+       ===================================== -->
+
+  {% include services.html %}
+
+
+  <!-- =====================================
+       HONORS AND AWARDS
+       ===================================== -->
+
+  {% include awards.html %}
+
+
+  <!-- =====================================
+       FOOTER
+       ===================================== -->
+
+  <footer>
+
+    <p>
+      &copy; {{ 'now' | date: "%Y" }}
+      {{ site.title }}
+      &middot;
+      Georgia Tech ISyE
+    </p>
+
+    {% if site.enable_footnote %}
+    <p>
+      <small>
+        Powered by Jekyll and the
+        <a href="https://github.com/yaoyao-liu/minimal-light"
+           target="_blank"
+           rel="noopener noreferrer">
+          Minimal Light
+        </a>
+        theme.
+      </small>
+    </p>
     {% endif %}
-  </body>
+
+  </footer>
+
+
+  <!-- =====================================
+       JAVASCRIPT
+       ===================================== -->
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  {% if site.google_analytics %}
+
+  <script async
+          src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}">
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+
+  {% endif %}
+
+</body>
 </html>
