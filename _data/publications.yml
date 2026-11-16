@@ -16,17 +16,46 @@
 # TODO: the entries below are working titles with placeholder co-authors.
 # Replace titles, author lists, status and links with the exact versions.
 
+
 main:
 
-  - title: "Sparse Multimodal Switching State-Space Models for Seizure Onset Zone Localization from Joint EEG&ndash;iEEG"
-    authors: <strong>Rahul Sharma</strong>, TODO co-authors
+  - title: "Sparse Multimodal Switching State-Space Model for Regime-Dependent Neural Connectivity under Partial Observations"
+    authors: "<strong>Rahul K. Sharma</strong>, Feng Liu, Xiaochen Xian"
+    venue: "Advances in Neural Information Processing Systems (NeurIPS 2026)."
+    year: 2026
+    note: "Accepted"
+
+  - title: "Impute-Net: An End-to-End Imputing Autoencoder Framework for Artifact-aware Sleep Apnea Detection"
+    authors: "<strong>Rahul K. Sharma</strong>, Xiaochen Xian, W. H. Yeo, R. Berry"
     venue: "Under review."
     year: 2026
-    # links:
-    #   - name: arXiv
-    #     url: https://arxiv.org/abs/XXXX.XXXXX
 
-  - title: "Impute-Net: TODO full title"
-    authors: <strong>Rahul Sharma</strong>, TODO co-authors
-    venue: "In preparation."
+  - title: "A Soft EEG-NIRS Sensor for Tracking Neural-Hemodynamic-Fluid Coupling During Natural Sleep"
+    authors: "Seunghyeb Ban, Junwoo Kwon, Sangho Yum, <strong>Rahul K. Sharma</strong>, Ikhwan Shin, Yunuo Huang, Chang-Ho Yun"
+    venue: "Under review."
     year: 2026
+
+  - title: "A Dual-Granularity Bayesian Active Learning Framework with Uncertainty Quantification for Sleep Apnea Severity Estimation"
+    authors: "X. Zan, <strong>Rahul K. Sharma</strong>, Xiaochen Xian, W. H. Yeo, R. Berry"
+    venue: "Under review."
+    year: 2026
+
+  - title: "Enhancing Robustness and Efficiency of Least Square Twin SVM via Granular Computing"
+    authors: "M. Tanveer, <strong>R. K. Sharma</strong>, A. Quadir, M. Sajid"
+    venue: "Pattern Recognition, vol. 170, article 112021."
+    year: 2026
+    links:
+      - name: Paper
+        url: https://www.sciencedirect.com/science/article/pii/S0031320325006818
+      - name: Code
+        url: https://github.com/mtanveer1/GBLSTSVM
+
+  - title: "GRVFL-MV: Graph Random Vector Functional Link Based on Multi-View Learning"
+    authors: "M. Tanveer, <strong>R. K. Sharma</strong>, M. Sajid, A. Quadir"
+    venue: "Information Sciences, vol. 704, article 121947."
+    year: 2025
+    links:
+      - name: Paper
+        url: https://www.sciencedirect.com/science/article/pii/S0020025525000799
+      - name: Code
+        url: https://github.com/mtanveer1/GRVFL-MV
