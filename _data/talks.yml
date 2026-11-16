@@ -2,11 +2,34 @@
 # Fields: date, title, venue, location, kind (Talk / Poster), links (optional list of {name,url})
 # TODO: replace the placeholder below.
 
-- date: "TODO Mon YYYY"
-  kind: Poster
-  title: "TODO: Title"
-  venue: "TODO: Venue"
-  location: "TODO: City, ST"
-  # links:
-  #   - name: Poster
-  #     url: assets/files/your_poster.pdf
+
+# Talks and Presentations
+# Listed in reverse chronological order
+
+- date: "2026"
+  title: "Sparse Multimodal Switching State-Space Model for Regime-Dependent Neural Connectivity under Partial Observations"
+  kind: "Talk"
+  venue: "INFORMS Annual Meeting 2026"
+  location: "San Francisco, CA"
+
+- date: "2026"
+  title: "Impute-Net: An End-to-End Imputing Autoencoder Framework for Artifact-aware Sleep Apnea Detection"
+  kind: "Poster"
+  venue: "INFORMS Annual Meeting 2026"
+  location: "San Francisco, CA"
+
+- date: "2026"
+  title: "Sparse Multimodal Switching State-Space Models for Regime-Dependent Neural Connectivity under Partial Observations"
+  kind: "Poster"
+  venue: "Georgia Statistics Day 2026"
+
+- date: "2026"
+  title: "Impute-Net: An End-to-End Imputing Autoencoder Framework for Artifact-aware Sleep Apnea Detection"
+  kind: "Poster"
+  venue: "IEEE FLEPS 2026"
+
+- date: "2025"
+  title: "Impute-Net: An End-to-End Imputing Autoencoder Framework for Artifact-aware Sleep Apnea Detection"
+  kind: "Talk"
+  venue: "INFORMS Annual Meeting 2025"
+  location: "Atlanta, GA"
