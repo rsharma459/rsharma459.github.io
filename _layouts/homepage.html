@@ -9,18 +9,25 @@
   <meta name="color-scheme" content="light dark">
 
   <!-- Apply saved theme before page loads -->
+  
   <script>
     (function () {
       try {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark' || t === 'light') {
-          document.documentElement.setAttribute('data-theme', t);
-        }
+        var savedTheme = localStorage.getItem('theme');
+  
+        document.documentElement.setAttribute(
+          'data-theme',
+          savedTheme === 'dark' ? 'dark' : 'light'
+        );
       } catch (e) {
-        /* Fall back to system theme */
+        document.documentElement.setAttribute(
+          'data-theme',
+          'light'
+        );
       }
     })();
   </script>
+
 
   <title>{{ site.title }} | {{ site.affiliation }}</title>
 
