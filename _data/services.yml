@@ -2,12 +2,21 @@
 # Each category has a heading and a list of items with { label, detail, comment? }
 # TODO: replace placeholders.
 
-- heading: "Conference Reviewing"
-  items:
-    - label: "TODO year"
-      detail: "TODO: venues"
 
-- heading: "Journal Reviewing"
+- heading: "University Service"
   items:
-    - label: "TODO year"
-      detail: "TODO: journals"
+
+    - label: "2026–Present"
+      detail: "<strong>Vice President</strong>, Georgia Tech INFORMS Student Chapter"
+      comment: "Organize academic and professional development events, facilitate student networking, and coordinate chapter activities."
+
+    - label: "2025–2026"
+      detail: "<strong>Secretary</strong>, Georgia Tech INFORMS Student Chapter"
+      comment: "Supported chapter operations, event organization, and communication among students and faculty."
+
+    - label: "2023–2024"
+      detail: "Member, Academic Council, IIT Indore"
+
+    - label: "2019–2022"
+      detail: "Member, Quaternion Society, University of Delhi"
+
