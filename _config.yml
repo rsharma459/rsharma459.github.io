@@ -1,13 +1,13 @@
 # Basic Information
 # TODO marks anything you should check or fill in yourself.
-title: Rahul Sharma
+title: Rahul K Sharma
 position: Ph.D. Student
 affiliation: ISyE, Georgia Tech
 affiliation_full: H. Milton Stewart School of Industrial and Systems Engineering
 affiliation_link: https://www.isye.gatech.edu/
 university: Georgia Institute of Technology
 location: Atlanta, GA, USA
-email: TODO-gt-username (at) gatech.edu   # TODO
+email: rsharma459 (at) gatech.edu   # 
 
 # Site URL
 # Set up for a GitHub Pages *user* site: repo named rsharma459.github.io,
@@ -24,9 +24,9 @@ canonical: https://rsharma459.github.io/
 
 # Links
 # If you don't need one of them, delete the corresponding line.
-# google_scholar: https://scholar.google.com/citations?user=TODO
+google_scholar: https://scholar.google.com/citations?user=VYn4ZOIAAAAJ&hl=en
 github_link: https://github.com/rsharma459
-# linkedin: https://www.linkedin.com/in/TODO
+linkedin: https://www.linkedin.com/in/rahul-sharma-35120b254/
 cv_link: assets/files/curriculum_vitae.pdf   # TODO: upload your CV to assets/files/ (or delete this line)
 
 # Images (profile picture and favicons)
