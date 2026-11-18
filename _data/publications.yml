@@ -23,13 +23,17 @@ main:
     authors: "<strong>Rahul K. Sharma</strong>, Feng Liu, Xiaochen Xian"
     venue: "Advances in Neural Information Processing Systems (NeurIPS 2026)."
     year: 2026
-    note: "Accepted"
+    links:
+      - name: Paper
+        url: https://openreview.net/pdf?id=dJy3Ipz0tx
+
+    
 
   - title: "Impute-Net: An End-to-End Imputing Autoencoder Framework for Artifact-aware Sleep Apnea Detection"
     authors: "<strong>Rahul K. Sharma</strong>, Xiaochen Xian, W. H. Yeo, R. Berry"
     venue: "Under review."
     year: 2026
-
+    
   - title: "A Soft EEG-NIRS Sensor for Tracking Neural-Hemodynamic-Fluid Coupling During Natural Sleep"
     authors: "Seunghyeb Ban, Junwoo Kwon, Sangho Yum, <strong>Rahul K. Sharma</strong>, Ikhwan Shin, Yunuo Huang, Chang-Ho Yun"
     venue: "Under review."
